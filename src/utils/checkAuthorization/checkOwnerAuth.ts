@@ -12,7 +12,7 @@ const checkOwnerAuth = (context: any) => {
 
 		if (token) {
 			try {
-				const owner = jwt.verify(token, process.env.JWT_OWNER_SECRET);
+				const owner = jwt.verify(token, process.env.JWT_ADMIN_SECRET);
 				return owner
 			} catch (err) {
 				throw new AuthenticationError('Error: Invalid token')

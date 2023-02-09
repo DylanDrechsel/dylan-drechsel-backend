@@ -2,7 +2,7 @@ import db from '../../../../utils/generatePrisma.js';
 import bcrypt from 'bcryptjs';
 import { UserInputError } from 'apollo-server-errors';
 import { validateLoginInput } from '../../../../utils/validators.js';
-import tokenGenerator from '../../../../utils/tokenGenerator'
+import generateAdminToken from '../../../../utils/generateToken/generateAdminToken'
 
 export default {
     Mutation: {
@@ -39,7 +39,7 @@ export default {
                 })
             }
     
-            const token = await generateOwnerToken(foundUser.id)
+            const token = await generateAdminToken(foundUser.id)
 
             req.session = {
                 token: `Bearer ${token}`

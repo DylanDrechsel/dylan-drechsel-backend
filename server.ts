@@ -16,7 +16,7 @@ const startApolloServer = async () => {
         context: ({ req }) => ({ req })
     })
 
-    const whitelist = [
+    const whitelist: Array<string> = [
         "http://localhost:3000",
         "http://localhost:5001/graphql",
         "https://studio.apollographql.com",
