@@ -1,32 +1,32 @@
 const validateRegisterInput = (email: string, password: string) => {
-	const errors: errors = {};
+	const error: errors = {};
 
 	if (email.trim() === '') {
-		errors.email = 'Email must not be empty';
+		error.email = 'Email must not be empty';
 	}
 	if (password.trim() === '') {
-		errors.password = 'Password must not be empty';
+		error.password = 'Password must not be empty';
 	}
 
 	return {
-		errors,
-		valid: Object.keys(errors).length < 1,
+		error,
+		valid: Object.keys(error).length < 1,
 	};
 };
 
 const validateLoginInput = (email, password) => {
-	const errors: errors = {};
+	const error: errors = {};
 
 	if (email.trim() === '') {
-		errors.email = 'Email must not be empty';
+		error.email = 'Email must not be empty';
 	}
 	if (password.trim() === '') {
-		errors.password = 'Password must not be empty';
+		error.password = 'Password must not be empty';
 	}
 	
 	return {
-		errors,
-		valid: Object.keys(errors).length < 1,
+		error,
+		valid: Object.keys(error).length < 1,
 	};
 };
 

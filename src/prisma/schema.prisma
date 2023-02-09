@@ -32,7 +32,7 @@ model Admin {
   // RESET PASSWORD
   resetPasswordToken           String?
   resetPasswordTokenExpiration Int?
-  signUpToken                  String? @unique // Used for Driver/Manager signing up on the app
+  signUpToken                  String? @unique // Used for special friends of the site owner
 }
 
 enum Role {
