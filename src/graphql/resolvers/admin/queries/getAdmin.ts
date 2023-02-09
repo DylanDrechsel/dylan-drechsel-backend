@@ -7,7 +7,7 @@ export default {
             const owner = await checkOwnerAuth(context)
 
             try {
-                return await db.owner.findUnique({
+                return await db.admin.findUnique({
                     where: {
                         id: owner.id
                     },

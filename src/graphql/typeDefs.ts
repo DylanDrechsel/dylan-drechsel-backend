@@ -12,8 +12,8 @@ const typeDefs = gql`
         firstname:                    String
         lastname:                     String
         email:                        String
-        password:                     String
         phoneNumber:                  String
+        password:                     String
         profilePick:                  JSON
 
         # ACCOUNT INFORMATION
@@ -32,11 +32,13 @@ const typeDefs = gql`
     # ---------------------------------------- END SCHEMAS ---------------------------------------- #
     
     type Query {
-
+        # ADMIN QUERIES
+        getAdmin: Admin
     }
 
     type Mutation {
-
+        # ADMIN MUTATIONS
+        adminSignIn(email: String!, password: String!): Admin
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
