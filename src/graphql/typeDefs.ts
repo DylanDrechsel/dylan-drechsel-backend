@@ -38,7 +38,7 @@ const typeDefs = gql`
 
     type Mutation {
         # ADMIN MUTATIONS
-        adminSignIn(email: String!, password: String!): Admin
+        adminLogIn(email: String!, password: String!): Admin
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
