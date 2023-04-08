@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const adminSecret: any = process.env.JWT_ADMIN_SECRET
+const ownerSecret: any = process.env.JWT_OWNER_SECRET
 
 const generateOwnerToken = (id: string) => {
-  return jwt.sign({ id }, adminSecret, {
+  return jwt.sign({ id }, ownerSecret, {
     expiresIn: "7d",
   });
 };
