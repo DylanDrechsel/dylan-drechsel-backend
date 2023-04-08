@@ -1,5 +1,7 @@
+import { errors } from "../types/errors";
+
 const validateRegisterInput = (email: string, password: string) => {
-	const error: any = {};
+	const error: errors = {};
 
 	if (email.trim() === '') {
 		error.email = 'Email must not be empty';
@@ -15,7 +17,7 @@ const validateRegisterInput = (email: string, password: string) => {
 };
 
 const validateLoginInput = (email: string, password: string) => {
-	const error: any = {};
+	const error: errors = {};
 
 	if (email.trim() === '') {
 		error.email = 'Email must not be empty';
