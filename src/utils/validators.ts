@@ -1,3 +1,5 @@
+import { errors } from "../types/errors";
+
 const validateRegisterInput = (email: string, password: string) => {
 	const error: errors = {};
 
@@ -14,7 +16,7 @@ const validateRegisterInput = (email: string, password: string) => {
 	};
 };
 
-const validateLoginInput = (email, password) => {
+const validateLoginInput = (email: string, password: string) => {
 	const error: errors = {};
 
 	if (email.trim() === '') {

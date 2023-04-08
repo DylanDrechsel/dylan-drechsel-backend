@@ -2,7 +2,7 @@ import db from '../../../../utils/generatePrisma.js';
 import bcrypt from 'bcryptjs';
 import { UserInputError } from 'apollo-server-errors';
 import { validateLoginInput } from '../../../../utils/validators.js';
-import generateAdminToken from '../../../../utils/generateToken/generateAdminToken'
+import generateAdminToken from '../../../../utils/generateToken/generateAdminToken.js'
 
 export default {
     Mutation: {
@@ -50,7 +50,7 @@ export default {
                     ...foundUser,
                     token: token
                 }
-            } catch (error) {
+            } catch (error: any) {
                 throw new Error(error)
             }
         }

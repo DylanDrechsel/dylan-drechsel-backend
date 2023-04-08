@@ -1,3 +1,5 @@
-interface errors {
-    [name: string]: string
+export interface errors {
+	email?: string;
+	password?: string;
+    general?: string;
 }

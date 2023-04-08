@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
+const ownerSecret: any = process.env.JWT_OWNER_SECRET
+
 const checkOwnerAuth = (context: any) => {
 	const authHeader = context.req.headers.authorization
 
@@ -12,7 +14,7 @@ const checkOwnerAuth = (context: any) => {
 
 		if (token) {
 			try {
-				const owner = jwt.verify(token, process.env.JWT_ADMIN_SECRET);
+				const owner = jwt.verify(token, ownerSecret);
 				return owner
 			} catch (err) {
 				throw new AuthenticationError('Error: Invalid token')
