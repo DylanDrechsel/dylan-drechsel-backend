@@ -4,7 +4,7 @@ const typeDefs = gql`
     scalar Date
     scalar JSON
 
-    type Admin {
+    type Owner {
         id:                           ID
         createdAt:                    Date
         role:                         String
@@ -15,10 +15,6 @@ const typeDefs = gql`
         phoneNumber:                  String
         password:                     String
         profilePick:                  JSON
-
-        # ACCOUNT INFORMATION
-        locked:                       Boolean
-        deleted:                      Boolean
 
         # NOTIFACTION SYSTEM
         notified:                     Boolean
@@ -32,13 +28,13 @@ const typeDefs = gql`
     # ---------------------------------------- END SCHEMAS ---------------------------------------- #
     
     type Query {
-        # ADMIN QUERIES
-        getAdmin: Admin
+        # OWNER QUERIES
+        getOwner: Owner
     }
 
     type Mutation {
-        # ADMIN MUTATIONS
-        adminLogIn(email: String!, password: String!): Admin
+        # OWNER MUTATIONS
+        ownerSignUp(email: String!, password: String!, phoneNumber: String!): Owner
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
