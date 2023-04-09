@@ -10,21 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Admin {
+model Owner {
   id          String   @id @unique @default(uuid())
   createdAt   DateTime @default(now())
-  role        Role     @default(ADMIN)
-  token       String?
-  firstname   String
-  lastname    String
+  role        Role     @default(OWNER)
   email       String   @unique
-  phoneNumber String
   password    String
+  token       String?
+  firstname   String?
+  lastname    String?
+  phoneNumber String?
   profilePick Json?
-
-  // ACCOUNT INFORMATION
-  locked  Boolean @default(false) // Used to lock the Drivers Account if needed
-  deleted Boolean @default(false) // Keeps track if the Manager account has been deleted
 
   // NOTIFACTION SYSTEM
   notified Boolean @default(false)
