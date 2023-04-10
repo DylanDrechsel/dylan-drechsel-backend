@@ -35,6 +35,7 @@ const typeDefs = gql`
     type Mutation {
         # OWNER MUTATIONS
         ownerSignUp(email: String!, password: String!, phoneNumber: String!): Owner
+        ownerLogin(email: String!, password: String!): Owner
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
