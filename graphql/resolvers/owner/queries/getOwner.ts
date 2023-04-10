@@ -4,7 +4,7 @@ import checkOwnerAuth from "../../../../utils/checkAuthorization/checkOwnerAuth.
 export default {
     Query: {
         getOwner: async (_: any, {}, context: any) => {
-            const owner: any = await checkOwnerAuth(context)
+            const owner = await checkOwnerAuth(context)
 
             try {
                 return await db.owner.findUnique({
