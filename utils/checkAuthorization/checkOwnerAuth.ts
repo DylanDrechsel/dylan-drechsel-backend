@@ -2,6 +2,7 @@ import { AuthenticationError } from 'apollo-server';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { JwtPayload } from '../../types/JwtPayload';
+import { Owner } from '../../types/owner/Owner';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ const checkOwnerAuth = (context: any) => {
 
 		if (token) {
 			try {
-				const owner = jwt.verify(token, ownerSecret) as JwtPayload;
+				const owner = jwt.verify(token, ownerSecret) as Owner;
 				return owner
 			} catch (err) {
 				throw new AuthenticationError('Error: Invalid token')
