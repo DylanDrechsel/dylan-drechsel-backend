@@ -4,12 +4,12 @@ import GraphQLJSON from 'graphql-type-json';
 import createConfigSetting from './mutations/createConfigSetting.js';
 
 // OWNER QUERIES
-
+import getConfigSettings from './queries/getConfigSettings.js'
 
 export default {
     Query: {
         // OWNER QUERIES
-        
+        ...getConfigSettings.Query
     },
     Mutation: {
         // OWNER MUTATIONS

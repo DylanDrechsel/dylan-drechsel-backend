@@ -5,7 +5,8 @@ import configSettingsResolvers from './configSettings/configSettingsResolvers.js
 
 export default {
     Query: {
-        ...ownerReslovers.Query
+        ...ownerReslovers.Query,
+        ...configSettingsResolvers.Query
     },
     Mutation: {
         ...ownerReslovers.Mutation,
