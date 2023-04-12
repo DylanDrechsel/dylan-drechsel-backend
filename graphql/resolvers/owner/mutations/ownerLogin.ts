@@ -3,10 +3,11 @@ import bcrypt from "bcryptjs";
 import { UserInputError } from 'apollo-server-errors';
 import { validateLoginInput } from "../../../../utils/validators.js";
 import generateOwnerToken from "../../../../utils/generateToken/generateOwnerToken.js"
+import { OwnerLogin } from '../../../../types/owner/OwnerLogin'
 
 export default {
     Mutation: {
-        ownerLogin: async (_: any, { email, password }: any, { req }: any) => {
+        ownerLogin: async (_: any, { email, password }: OwnerLogin, { req }: any) => {
             const { errors, valid } = validateLoginInput(email, password)
     
             if (!valid) {

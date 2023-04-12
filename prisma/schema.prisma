@@ -31,6 +31,15 @@ model Owner {
   signUpToken                  String? @unique // Used for special friends of the site owner
 }
 
+model ConfigSetting {
+  id          String   @id @unique @default(uuid())
+  createdAt   DateTime @default(now())
+  key         String
+  value       String
+  description String
+  type        String
+}
+
 enum Role {
   USER
   ADMIN

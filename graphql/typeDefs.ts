@@ -25,6 +25,15 @@ const typeDefs = gql`
         signUpToken:                  String
     }
 
+    type ConfigSetting {
+        id:                           ID
+        createdAt:                    Date
+        key:                          String
+        value:                        String
+        description:                  String
+        type:                         String
+    }
+
     # ---------------------------------------- END SCHEMAS ---------------------------------------- #
     
     type Query {
@@ -36,9 +45,20 @@ const typeDefs = gql`
         # OWNER MUTATIONS
         ownerSignUp(email: String!, password: String!, phoneNumber: String!): Owner
         ownerLogin(email: String!, password: String!): Owner
+        ownerUpdate(email: String, password: String, phoneNumber: String): Owner
+
+        # CONFIG SETTINGS MUTATIONS
+        createConfigSetting(createConfigSetting: CreateConfigSetting): ConfigSetting
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
+
+    input CreateConfigSetting {
+		key: String!
+		value: String!
+		description: String!
+		type: String!
+	}
 `;
 
 export default typeDefs;
