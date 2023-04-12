@@ -4,6 +4,7 @@ import { UserInputError } from "apollo-server-errors";
 import { validateRegisterInput } from "../../../../utils/validators.js";
 import generateOwnerToken from "../../../../utils/generateToken/generateOwnerToken.js";
 import tokenGenerator from "../../../../utils/tokenGenerator.js";
+import { OwnerRegister } from '../../../../types/owner/OwnerRegister'
 
 export default {
     Mutation: {
@@ -11,7 +12,7 @@ export default {
             email,
             password,
             phoneNumber
-        }: any, { req }: any) => {
+        }: OwnerRegister, { req }: any) => {
             const { valid, errors } = validateRegisterInput(email, password)
 
             if (!valid) {

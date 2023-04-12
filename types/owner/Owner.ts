@@ -12,7 +12,7 @@ const Owner = z.object({
     phoneNumber: z.string().optional(),
     profilePick: z.object({}).optional(),
 
-    notified: z.boolean().default(false),
+    notified: z.boolean(),
 
     resetPasswordToken: z.string(),
     resetPasswordTokenExpiration: z.number().int().positive(),
