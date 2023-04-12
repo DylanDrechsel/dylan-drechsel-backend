@@ -12,6 +12,16 @@ export default {
             }
 
             CreateConfigSettingSchema.parse(createConfigSetting)
+
+            try {
+                return await db.configSetting.create({
+                    data: {
+                        ...createConfigSetting.createConfigSetting
+                    }
+                })
+            } catch (error : any) {
+                throw new Error(error)
+            }
         }
     }
 }
