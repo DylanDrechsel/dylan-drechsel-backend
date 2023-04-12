@@ -39,6 +39,9 @@ const typeDefs = gql`
     type Query {
         # OWNER QUERIES
         getOwner: Owner
+
+        # CONFIG SETTINGS QUERIES
+        getConfigSettings: [ConfigSetting]
     }
 
     type Mutation {
