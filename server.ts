@@ -44,6 +44,8 @@ const startApolloServer = async () => {
         cors: false
     });
     await app.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}... GraphQL/Apollo at studio.apollographql.com/dev`));
+
+    
 }
 
 startApolloServer()
