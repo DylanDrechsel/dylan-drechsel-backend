@@ -1,26 +1,23 @@
 import db from "../../../../utils/generatePrisma.js";
 import checkOwnerAuth from "../../../../utils/checkAuthorization/checkOwnerAuth.js"
-import { CreateConfigSetting } from "../../../../types/configSettings/createConfigSetting.js";
-import { ConfigSettingSchema } from "../../../../types/configSettings/configSetting.js";
 
 export default {
     Mutation: {
-        createConfigSetting: async (_: any, { createConfigSetting }: CreateConfigSetting, context: any) => {
+        deleteConfigSetting: async (_: any, { id }: any, context: any) => {
             const owner = await checkOwnerAuth(context)
 
             if (!owner) {
                 throw new Error("Not the owner... Unauthorized")
             }
 
-            ConfigSettingSchema.parse({...createConfigSetting})
-
             try {
-                return await db.configSetting.create({
-                    data: {
-                        ...createConfigSetting
+                return await db.configSetting.delete({
+                    where: {
+                        id
                     }
                 })
             } catch (error : any) {
+                console.log(error)
                 throw new Error(error)
             }
         }
