@@ -52,6 +52,8 @@ const typeDefs = gql`
 
         # CONFIG SETTINGS MUTATIONS
         createConfigSetting(createConfigSetting: CreateConfigSetting): ConfigSetting
+        updateConfigSetting(updateConfigSetting: UpdateConfigSetting): ConfigSetting
+        deleteConfigSetting(id: String!): ConfigSetting
     }
 
     # ---------------------------------------- END QUERIES AND MUTATIONS ---------------------------------------- #
@@ -62,6 +64,14 @@ const typeDefs = gql`
 		description: String!
 		type: String!
 	}
+
+    input UpdateConfigSetting {
+        id: String!
+        key: String
+		value: String
+		description: String
+		type: String
+    }
 `;
 
 export default typeDefs;
