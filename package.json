@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc --pretty",
-    "start": "ts-node-esm server.ts",
+    "start": "ts-node-esm main.ts",
+    "start-server": "ts-node-esm server.ts",
     "dev": "npx ts-node-dev server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "remove": "rm -rf server.js"
